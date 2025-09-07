@@ -6,5 +6,7 @@ set(CMAKE_C_STANDARD 23)
 
 add_executable(project-stats
         ../src/main/main.c
+        ../src/internal/checked_dir_linux.c
+        ../src/include/chdir.h
 
 )
