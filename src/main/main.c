@@ -3,31 +3,33 @@
 //
 
 #include <stdio.h>
+#include <string.h>
+
+#define VERSION "0.0.1"
 
 int main(int argc, char *argv[])
 {
     if (argc != 2)
     {
         perror("Wrong number of arguments");
-        return 1;
+        return 1;s
     }
 
-    switch (*argv[1])
+    if (strcmp(argv[1], "--help") == 0)
     {
-        case '--help':
-            printf("");
-            return 0;
+        printf("Usage: %s [OPTIONS]\n", argv[0]);
+    }
+    else if (strcmp(argv[1], "--version") == 0 || strcmp(argv[1], "-V") == 0)
+    {
+        printf("%s\n", VERSION);
+    }
+    else if (strcmp(argv[1], "--fetch") == 0)
+    {
 
-        case '--fetch':
-            printf("Fetching...\n");
-            return 0;
-
-        case '--info':
-            printf("Info:\n");
-            return 0;
-
-        default:
-            printf("Unknown command\n");
-            return 1;
+    }
+    else
+    {
+       perror("Unknown command");
+       return 1;
     }
 }
