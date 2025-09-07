@@ -11,13 +11,4 @@ int main(int argc, char *argv[])
         perror("Wrong number of arguments");
         return 1;
     }
-
-    switch (*argv[1])
-    {
-        case '--help':
-            printf("");
-            return 0;
-
-
-    }
 }
