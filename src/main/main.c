@@ -18,6 +18,16 @@ int main(int argc, char *argv[])
             printf("");
             return 0;
 
+        case '--fetch':
+            printf("Fetching...\n");
+            return 0;
 
+        case '--info':
+            printf("Info:\n");
+            return 0;
+
+        default:
+            printf("Unknown command\n");
+            return 1;
     }
 }
