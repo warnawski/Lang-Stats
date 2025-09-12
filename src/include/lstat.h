@@ -30,11 +30,13 @@ void add_lines(const char *ext, long lines);
 
 void add_ext(const char **ext, size_t count);
 
-void init_all_ext();
+void init_all_ext(const char *ext[], size_t count);
 
 void pub_add_lang(const char **ext, const char **lang, size_t count);
 
-void init_all_lang();
+void init_all_lang(const char *ext[], const char *langs[], size_t count);
+
+void init_st();
 
 void print_lines_per_language();
 
