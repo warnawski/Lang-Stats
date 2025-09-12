@@ -6,3 +6,8 @@ Architecture: amd64
 Depends: libc6 (>= 2.31)
 Maintainer: Sergey Warnawski <barnawskidm@gmail.com>
 Description: C CLI utilit for get project statistic about the use of languages in percentage terms
+
+
+
+
+
