@@ -11,8 +11,7 @@
 
 void fetch_command()
 {
-    init_all_ext();
-    init_all_lang();
+    init_st();
     directory_traversal();
     print_lines_per_language();
 }
