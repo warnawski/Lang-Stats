@@ -3,23 +3,29 @@
 //
 #include "../include/lstat.h"
 
-void init_all_ext()
+void init_all_ext(const char *ext[], size_t count)
 {
-    const char *ext[] = {
-        "c", "py", "go", "cpp", "js", "rs", "h",
-    };
-    add_ext(ext, sizeof(ext) / sizeof(ext[0]));
+    add_ext(ext, count);
 }
 
-void init_all_lang()
+void init_all_lang(const char *ext[], const char *langs[], size_t count)
 {
-    const char *langs[] = {
-        "C", "Python", "Go", "C++", "JavaScript", "Rust", "Header C file",
-    };
 
+    pub_add_lang(ext, langs, count);
+}
+
+void init_st()
+{
     const char *ext[] = {
-        "c", "py", "go", "cpp", "js", "rs", "h",
+        "c", "py", "go", "cpp", "js", "rs", "h", "java", "cs", "php", "sh", "hpp", "clj", "cr", "dart", "pas", "ex"
     };
 
-    pub_add_lang(ext, langs, sizeof(langs) / sizeof(langs[0]));
+    const char *langs[] = {
+        "C", "Python", "Go", "C++", "JavaScript", "Rust", "Header C file", "Java", "C#", "PHP", "Bash", "Header C++ file" , "Clojure", "Crystal", "Dart", "Pascal", "Elexir"
+    };
+
+    size_t count = sizeof(ext) / sizeof(ext[0]);
+
+    init_all_ext(ext, count);
+    init_all_lang(ext, langs, count);
 }
