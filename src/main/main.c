@@ -7,7 +7,7 @@
 #include "../include/chdir.h"
 #include "../include/lstat.h"
 
-#define CLI_VERSION "0.0.1"
+#define CLI_VERSION "0.0.2"
 
 void fetch_command()
 {
