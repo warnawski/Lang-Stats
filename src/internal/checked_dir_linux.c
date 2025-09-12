@@ -7,7 +7,6 @@
 #include <unistd.h>
 #include "../include/chdir.h"
 #include <sys/stat.h>
-#include "../include/lstat.h"
 
 int get_current_directory(char *buffer, size_t size)
 {
@@ -67,14 +66,34 @@ int directory_going_down(const char local_buff[4096])
         struct stat st;
         if (stat(path_buff, &st) == 0 && S_ISDIR(st.st_mode))
         {
-            printf("%s\n", path_buff);
+            // printf("%s\n", path_buff);
             directory_going_down(path_buff);
         }
         else
         {
-            printf("UNKNOWN FILE %s\n", path_buff);
+            char ext_result[20];
+            int x = 0;
+
+            const char *name = entry->d_name;
+            size_t len = strlen(name);
+
+            const char *dot = strrchr(name, '.');
+            if (dot != NULL)
+            {
+                x = 0;
+                dot++;
+                while (*dot && x < sizeof(ext_result) - 1)
+                {
+                    ext_result[x++] = *dot++;
+                }
+                ext_result[x] = '\0';
+            } else
+            {
+                ext_result[0] = '\0';
+            }
+
             long i = read_and_counted_lines(path_buff, entry);
-            printf("%ld\n", i);
+            add_lines(ext_result, i);
         }
     }
     closedir(dir);
