@@ -3,12 +3,19 @@
 //
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include "../include/chdir.h"
-
+#include "../include/lstat.h"
 
 #define CLI_VERSION "0.0.1"
+
+void fetch_command()
+{
+    init_all_ext();
+    init_all_lang();
+    directory_traversal();
+    print_lines_per_language();
+}
 
 int main(int argc, char *argv[])
 {
@@ -30,15 +37,7 @@ int main(int argc, char *argv[])
     }
     else if (strcmp(argv[1], "--fetch") == 0 || strcmp(argv[1], "--f") == 0)
     {
-        char *buffer = malloc(4096);
-        if (!buffer)
-        {
-            perror("malloc");
-            exit(1);
-        }
-        get_current_directory(buffer, 4096);
-        printf("VOT %s\n", buffer);
-        free(buffer);
+        fetch_command();
         return 0;
     }
     else
