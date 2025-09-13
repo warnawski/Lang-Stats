@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     }
     else
     {
-        perror("Unknown command, please send command '--help'");
+        perror("Unknown command, please send command '--help' or '--h");
         return 1;
     }
 }
